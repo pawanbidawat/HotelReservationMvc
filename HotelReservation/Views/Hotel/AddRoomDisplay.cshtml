@@ -1,0 +1,103 @@
+﻿@model HotelReservation.Models.DTO.HotelRoomModel
+
+@{
+    ViewData["Title"] = "AddRoomDisplay";
+}
+
+<h1>AddRoomDisplay</h1>
+
+<h4>HotelRoomModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="AddRoom" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="RoomId" class="form-control" />
+            <div class="form-group">
+                <label asp-for="RoomType">Room Type</label>
+                <input type="text" class="form-control" asp-for="RoomType" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DateFrom" class="control-label"></label>
+                <input asp-for="DateFrom" class="form-control" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTo" class="control-label"></label>
+                <input asp-for="DateTo" class="form-control" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+           @*  <div class="form-group">
+                <label asp-for="BlackoutDate" class="control-label"></label>
+                <input asp-for="BlackoutDate" class="form-control" />
+                <span asp-validation-for="BlackoutDate" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="RoomImageFile">Room Image</label>
+                <input type="file" class="form-control" asp-for="RoomImageFile" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleRate" class="control-label"></label>
+                <input asp-for="SingleRate" id="singleRate" class="form-control" />
+                <span asp-validation-for="SingleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoubleRate" class="control-label"></label>
+                <input asp-for="DoubleRate" id="doubleRate" class="form-control" />
+                <span asp-validation-for="DoubleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripleRate" class="control-label"></label>
+                <input asp-for="TripleRate" class="form-control" />
+                <span asp-validation-for="TripleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultRate" class="control-label"></label>
+                <input asp-for="AdultRate" class="form-control" id="adultRate" />
+                <span asp-validation-for="AdultRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChildRate" class="control-label"></label>
+                <input asp-for="ChildRate" id="childRate" class="form-control" />
+                <span asp-validation-for="ChildRate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+
+                    <input class="form-check-input" asp-for="SingleEqualDouble" id="singleEqualDouble" /> @Html.DisplayNameFor(model => model.SingleEqualDouble)
+                    <span> ,[Selecting will automatically add a rate for room rate type "DoubleRate"]</span>
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ExceptionCase" /> @Html.DisplayNameFor(model => model.ExceptionCase)
+                    <span> ,[ 1 sgl rate +1 child rate = dbl rate ]</span>
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NoExtraAdult" id="noExtraAdult" /> @Html.DisplayNameFor(model => model.NoExtraAdult)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NoChild" id="noChild" /> @Html.DisplayNameFor(model => model.NoChild)
+                </label>
+            </div>
+
+            <input type="hidden" asp-for="HotelId" class="form-control" value="@ViewData["HotelId"]" />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/EditRoom.js"></script>

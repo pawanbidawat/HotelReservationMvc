@@ -1,0 +1,85 @@
+﻿@using HotelReservation.Models.DTO
+@model List<HotelRoomModel>
+@{
+    ViewData["Title"] = "HotelRoomDetails";
+    var id = ViewData["HotelId"];
+}
+
+@* <style>
+     .custom-color{
+        background-color: black;      
+        opacity: 1 !important;
+    } 
+
+    .selected-date .ui-state-active {
+        background-color: #ffcc00 !important;
+        opacity: 1 !important;
+    }
+</style>
+<div id="blackoutDates"> <input id="datepicker" type="text" /></div> *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+
+            <th scope="col">Date From</th>
+            <th scope="col">DateTo</th>
+            <th scope="col">BlackoutDate</th>
+            <th scope="col">SingleRate</th>
+            <th scope="col">DoubleRate</th>
+            <th scope="col">TripleRate</th>
+            <th scope="col">AdultRate</th>
+            <th scope="col">ChildRate</th>
+            <th scope="col"> <a class="btn btn-primary" role="button" asp-route-id="@id" asp-controller="Hotel" asp-action="AddRoomDisplay">Add Room</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DateFrom </td>
+                    <td>@item.DateTo</td>
+
+                    <td>
+
+                        <a href="#" data-roomId="@item.RoomId" class="showCalendar">
+                      
+                            Show
+                        </a>
+
+
+                    </td>
+                    <td>@item.SingleRate</td>
+                    <td>@item.DoubleRate</td>
+                    <td>@item.TripleRate</td>
+                    <td>@item.AdultRate</td>
+                    <td>@item.ChildRate</td>
+                    <td>
+                        <a class="btn btn-primary" asp-route-id="@item.RoomId" role="button" asp-controller="Hotel" asp-action="EditRoomDisplay">Edit</a>
+                        <button type="button" room-id="@item.RoomId" class="btn btn-secondary delete-room">Delete</button>
+                    </td>
+                </tr>
+
+            }
+
+        }
+
+    </tbody>
+
+</table>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<!-- Load jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<!-- Load jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="~/js/HotelRoom.js"></script>
+
+
+
+
+<script>
+
+</script>
+

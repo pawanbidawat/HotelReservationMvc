@@ -1,0 +1,112 @@
+﻿@model IEnumerable<HotelReservation.Models.DTO.HotelRoomModel>
+
+@{
+    ViewData["Title"] = "FilterRooms";
+}
+<style>
+    .Desc {
+        border: 2px solid;
+        margin-top: 2%;
+    }
+
+    .ParentBox, .FilterBlock {
+        display: flex;
+    }
+
+    .block2 {
+        margin-left: 20%;
+        margin-top: 2%;
+    }
+
+    .block3 {
+        float: left;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 2%;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+
+</style>
+<div class="row">
+    <div class="col-sm-8">
+
+        <h1>Available Rooms</h1>
+
+    </div>
+    <div class="col-sm-4">
+
+        <h5 class="filterProp">For @UniversalFilterValue.Adult Adult And @UniversalFilterValue.Child Child Price Would Be </h5>
+
+    </div>
+</div>
+
+<div>
+
+    @foreach (var item in Model)
+    {
+
+        <div class="Desc">
+            <div class="inner-container ParentBox">
+
+                <div class="block1">
+                    <img src="~/images/RoomImages/@item.RoomImage" alt="Not Found" style="width:300px" />
+                </div>
+
+
+                <div class="block2">
+                    <h5 class="card-title">@item.RoomType</h5>
+                    <p class="card-text">@item.Hotel.Rating Star</p>
+                    <p class="card-text">@item.Hotel.HotelName</p>
+                    <p class="card-text">@item.Hotel.HotelAddress</p>
+                    <p class="card-text">@item.Description</p>
+
+
+                </div>
+
+                <div class="block3">
+                    @{
+                        if (UniversalFilterValue.Adult == 1 && UniversalFilterValue.Child == 0)
+                        {
+                            <p class="card-text"><small class="text-muted">@item.SingleRate /-</small></p>
+                        }
+                        else if (UniversalFilterValue.Adult == 1 && UniversalFilterValue.Child == 1)
+                        {
+                            <p class="card-text"><small class="text-muted">@item.DoubleRate /-</small></p>
+                        }
+                        else if (UniversalFilterValue.Adult == 2 && UniversalFilterValue.Child == 0)
+                        {
+                            <p class="card-text"><small class="text-muted">@item.DoubleRate /-</small></p>
+                        }
+                        else if (UniversalFilterValue.Adult == 3 && UniversalFilterValue.Child == 0)
+                        {
+                            <p class="card-text"><small class="text-muted">@item.TripleRate /-</small></p>
+                        }
+                        else if (UniversalFilterValue.Adult > 3 && UniversalFilterValue.Child > 0)
+                        {
+                            decimal adjustedRate = item.TripleRate + UniversalFilterValue.Adult * item.AdultRate + UniversalFilterValue.Child * item.ChildRate;
+                            <p class="card-text"><small class="text-muted">@adjustedRate /-</small></p>
+                        }
+
+
+                    }
+
+                    <p>per night</p>
+                    <button>Contact Us</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,0 +1,97 @@
+﻿@using HotelReservation.Models.DTO
+@model List<HotelDetailsModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+
+}
+<style>
+    .OuterBlock {
+        border: 2px solid;
+        margin-top: 2%;
+    }
+
+    .ParentBox, .FilterBlock {
+        display: flex;
+    }
+
+    .block2 {
+        margin-left: 20%;
+        margin-top: 2%;
+    }
+
+    .block3 {
+        float: left;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 2%;
+    }
+
+    .CheckBtn {
+        margin-top: 1.8%;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+</style>
+
+
+
+<form asp-action="FilterRooms" asp-controller="Home" method="post">
+    <div class="FilterBlock">
+        <div class="checkInBlock col-6 col-md-2 col-lg-3">
+            <label for="DateFrom">Check in</label>
+            <input id="DateFrom" name="DateFrom" type="date" class="form-control" />
+        </div>
+        <div class="checkOutBlock col-6 col-md-2 col-lg-3">
+            <label for="DateTo">Check out</label>
+            <input id="DateTo" name="DateTo"  type="date" class="form-control" />
+        </div>
+        <div class="Adultblock col-4 col-md-1">
+            <label for="Adult">Adult</label>
+            <select name="Adult" id="Adult" class="form-control" >               
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+            </select>
+        </div>
+
+        <div class="Adultblock col-4 col-md-1">
+            <label for="Child">Child</label>
+            <select name="Child" id="Child" class="form-control">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+            </select>
+        </div>
+        <div class="CheckBtn col-6 col-md-2 col-lg-3">     
+            <button type="submit" class="form-control CheckBtn" disabled="true">Check Availability</button>
+        </div>
+    </div>
+</form>
+<form id="searchForm" >
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit">Search</button>
+</form>
+ 
+
+
+
+<div class="container" id="HotelDisplay">
+    @Html.Partial("_HotelDisplay", Model)
+</div>
+    <script src="~/lib/jquery/dist/jquery.min.js" ></script>
+<script src="~/js/HomeIndex.js"></script>
+
+
+
+

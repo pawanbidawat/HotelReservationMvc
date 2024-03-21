@@ -1,0 +1,47 @@
+﻿@using HotelReservation.Models.DTO
+@model List<HotelDetailsModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+           
+            <th scope="col">Hotel Name</th>
+            <th scope="col">Hotel Address</th>
+            <th scope="col">Hotel Rating</th>
+            <th scope="col"> <a class="btn btn-primary" role="button" asp-controller="Hotel" asp-action="AddHotelDisplay">AddHotel</a> </th>
+        </tr>
+    </thead>
+    <tbody>
+   @if(Model!=null){
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.HotelName </td>
+                <td>@item.HotelAddress</td>
+                <td>@item.Rating</td>
+                <td>
+                        <a class="btn btn-warning" asp-route-id="@item.HotelId" role="button" asp-controller="Hotel" asp-action="EditHotelDisplay">Edit</a>
+                        <a class="btn btn-primary" asp-route-id="@item.HotelId" role="button" asp-controller="Hotel" asp-action="HotelRoomDetails">Rooms</a>
+                       <button type="button" hotel-id="@item.HotelId" class="btn btn-secondary delete">Delete</button>
+                   
+
+
+                </td>
+            </tr>
+
+        } 
+
+        }
+
+    </tbody>
+
+</table>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/js/HotelIndex.js"></script>
+

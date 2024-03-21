@@ -1,0 +1,34 @@
+﻿@using HotelReservation.Models.DTO
+@model HotelDetailsModel;
+
+<h1>AddHotel</h1>
+
+<form asp-action="AddHotel" asp-controller="Hotel" method="post" enctype="multipart/form-data">
+    <div>
+        <label asp-for="HotelName"></label>
+        <input asp-for="HotelName" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="HotelAddress"></label>
+        <input asp-for="HotelAddress" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="HotelDescription"></label>
+        <input asp-for="HotelDescription" class="form-control" />
+    </div> 
+    <div>
+        <label asp-for="BlockedChildRange"></label>
+        <input asp-for="BlockedChildRange" type="Text"  class="form-control" />
+    </div>
+    <div>       
+        <label asp-for="HotelImageFile">Hotel Image</label>
+        <input type="file" class="form-control" asp-for="HotelImageFile">
+    </div>
+    <div>
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" type="number" min="1" max="5" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+

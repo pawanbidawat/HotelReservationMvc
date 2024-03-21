@@ -1,0 +1,81 @@
+﻿@model IEnumerable<HotelReservation.Models.DTO.HotelRoomModel>
+
+@{
+    ViewData["Title"] = "HotelRooms";
+}
+<style>
+    .Desc {
+        border: 2px solid;
+        margin-top: 2%;
+    }
+
+    .ParentBox, .FilterBlock {
+        display: flex;
+    }
+
+    .block2 {
+        margin-left: 20%;
+        margin-top: 2%;
+    }
+
+    .block3 {
+        float: left;
+        margin-left: auto;
+        margin-right: 20px;
+        margin-top: 2%;
+    }
+
+    .container {
+        overflow: hidden;
+    }
+</style>
+
+<h1>Hotel Rooms</h1>
+
+<div>
+
+    <hr />
+    @foreach (var item in Model)
+    {
+
+        <div class="Desc">
+            <div class="inner-container ParentBox">
+
+                <div class="block1">
+                    <img src="~/images/RoomImages/@item.RoomImage" alt="Not Found" style="width:300px" />
+                </div>
+
+
+                <div class="block2">
+                    <h5 class="card-title">@item.RoomType</h5>
+                    <p class="card-text">@item.Hotel.Rating Star</p>
+                    <p class="card-text">@item.Hotel.HotelName</p>
+                    <p class="card-text">@item.Hotel.HotelAddress</p>
+                    <p class="card-text">@item.Description</p>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="nav-item">
+                            <a  asp-route-id="@item.HotelId"  asp-controller="Hotel" asp-action="HotelRoomDetails">Room details</a>
+                        </li>
+                    }
+
+                </div>
+
+                <div class="block3">
+                    <p class="card-text"><small class="text-muted">@item.SingleRate /-</small></p>
+
+                    <p>per night</p>
+                    <button>Contact Us</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

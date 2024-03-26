@@ -46,6 +46,8 @@ namespace HotelReservation.Controllers
         {
             UniversalFilterValue.Adult = model.Adult;
             UniversalFilterValue.Child = model.Child;
+            UniversalFilterValue.CheckIn = model.DateFrom;
+            UniversalFilterValue.CheckOut = model.DateTo;
             var client = new HttpClient();
             var apiUrl = "https://localhost:44368/api/HotelApi/GetHotelAndRoomByDate";
             var jsonValue = JsonConvert.SerializeObject(model);

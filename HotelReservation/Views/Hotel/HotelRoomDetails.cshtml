@@ -5,7 +5,7 @@
     var id = ViewData["HotelId"];
 }
 
-@* <style>
+<style>
      .custom-color{
         background-color: black;      
         opacity: 1 !important;
@@ -15,8 +15,16 @@
         background-color: #ffcc00 !important;
         opacity: 1 !important;
     }
+
+    #datepicker {
+        opacity: 0;
+        position:absolute;
+        margin:30% 20%;
+        width: 1px;
+        height: 32px; 
+    }
 </style>
-<div id="blackoutDates"> <input id="datepicker" type="text" /></div> *@
+<div id="blackoutDates" style=""> <input id="datepicker" type="text" /></div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -71,7 +79,8 @@
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <!-- Load jQuery UI -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multidatespicker/1.6.6/jquery-ui.multidatespicker.js"></script>
 <!-- Load jQuery UI CSS -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="~/js/HotelRoom.js"></script>

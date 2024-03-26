@@ -256,3 +256,4 @@ C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelRes
 C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelReservation\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelReservation\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelReservation\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelReservation\obj\Debug\net8.0\HotelReservation.sourcelink.json

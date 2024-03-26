@@ -1,5 +1,19 @@
 ﻿$(document).ready(function () {
 
+    //initializing multipal date picker function
+    //function InitDatepicker() {
+    //    $('#datepicker').multiDatesPicker({
+    //        beforeShowDay: function (date) {
+    //            var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+    //            var isBlackoutDate = $('.blackoutDate[value="' + dateString + '"]').length > 0;
+    //            if (isBlackoutDate) {
+    //                return [true, 'custom-color', 'Blackout Date'];
+    //            } else {
+    //                return [true, '', ''];
+    //            }
+    //        }
+    //    }).focus();
+    //}
     //fetching blackout dates 
     $('.showCalendar').click(function (e) {
         e.preventDefault();
@@ -13,33 +27,35 @@
             success: function (response) {
                 console.log(response);
 
-                //response.forEach(function (item) {
-                //    var date = new Date(item.date);            
+                response.forEach(function (item) {
+                    var date = new Date(item.date);            
                    
-                //    $('#blackoutDates').append('<input type="hidden" class="blackoutDate" value="' + date.toISOString().split('T')[0] + '">');
-               /* });*/
+                    $('#blackoutDates').append('<input type="hidden" class="blackoutDate" value="' + date.toISOString().split('T')[0] + '">');
+                });
 
               
-            //    $('#datepicker').datepicker({
-            //        beforeShowDay: function (date) {
-            //            var dateString = $.datepicker.formatDate('yy-mm-dd', date);
+                $('#datepicker').multiDatesPicker({
+                    beforeShowDay: function (date) {
+                        var dateString = $.datepicker.formatDate('yy-mm-dd', date);
 
-            //            var isBlackoutDate = $('.blackoutDate[value="' + dateString + '"]').length > 0;
+                        var isBlackoutDate = $('.blackoutDate[value="' + dateString + '"]').length > 0;
 
-            //            if (isBlackoutDate) {
-            //                return [true, 'custom-color', 'Blackout Date'];
-            //            } else {
-            //                return [true, '', ''];
+                        if (isBlackoutDate) {
+                            return [true, 'custom-color', 'Blackout Date'];
+                        } else {
+                            return [true, '', ''];
 
-            //            }
-            //        }
-            //    }).focus();
+                        }
+                    }
+                    
+                }).focus();
                
-            //},
-            //complete: function () {
-            //    // Clear the blackout dates after fading out
-            //    $('#blackoutDates').empty();
-                //
+            },
+            complete: function () {
+                
+                console.log("AJAX complete");
+           /*     $('#blackoutDates').empty(); */
+                
             },
             error: function (xhr, status, error) {
                 console.error('Failed to fetch blackout dates:', error);

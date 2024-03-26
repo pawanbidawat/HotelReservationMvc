@@ -52,13 +52,7 @@
                     <p class="card-text">@item.Hotel.HotelName</p>
                     <p class="card-text">@item.Hotel.HotelAddress</p>
                     <p class="card-text">@item.Description</p>
-                    @if (User.IsInRole("admin"))
-                    {
-                        <li class="nav-item">
-                            <a  asp-route-id="@item.HotelId"  asp-controller="Hotel" asp-action="HotelRoomDetails">Room details</a>
-                        </li>
-                    }
-
+                 
                 </div>
 
                 <div class="block3">

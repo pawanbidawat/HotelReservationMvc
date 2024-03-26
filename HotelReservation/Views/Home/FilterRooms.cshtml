@@ -1,7 +1,46 @@
-﻿@model IEnumerable<HotelReservation.Models.DTO.HotelRoomModel>
+﻿@using HotelReservation.Models.DTO
+@model IEnumerable<HotelReservation.Models.DTO.HotelRoomModel>
 
 @{
     ViewData["Title"] = "FilterRooms";
+    decimal total = 0;
+
+    @functions {
+        public string GetRate(HotelRoomModel item, int adultCount, int childCount)
+        {
+
+            if (adultCount == 1 && childCount == 0)
+            {              
+                return $"{item.SingleRate}";
+            }
+            else if (adultCount == 1 && childCount == 1)
+            {
+                if (item.ExceptionCase)
+                {
+                    return $"{item.DoubleRate}";
+                }
+                return $"{item.SingleRate+item.ChildRate}";
+            }
+            else if (adultCount == 2 && childCount == 0)
+            {
+                return $"{item.DoubleRate}";
+            }
+            else if (adultCount == 3 && childCount == 0)
+            {
+                return $"{item.TripleRate}";
+            }
+          
+            else if (adultCount >= 2 && childCount > 0)
+            {
+                decimal adjustedRate = item.SingleRate + adultCount * item.AdultRate + childCount * item.ChildRate;
+                return $"{adjustedRate}";
+            }
+            else
+            {
+                return "Rate not available";
+            }
+        }
+    }
 }
 <style>
     .Desc {
@@ -29,6 +68,16 @@
         overflow: hidden;
     }
 
+    .days-container {
+        display: flex;
+        flex-direction: row;
+        /* Additional styles as needed */
+    }
+
+    .days {
+        margin-left: 10px;
+    }
+
 </style>
 <div class="row">
     <div class="col-sm-8">
@@ -47,14 +96,11 @@
 
     @foreach (var item in Model)
     {
-
         <div class="Desc">
             <div class="inner-container ParentBox">
-
                 <div class="block1">
                     <img src="~/images/RoomImages/@item.RoomImage" alt="Not Found" style="width:300px" />
                 </div>
-
 
                 <div class="block2">
                     <h5 class="card-title">@item.RoomType</h5>
@@ -62,47 +108,50 @@
                     <p class="card-text">@item.Hotel.HotelName</p>
                     <p class="card-text">@item.Hotel.HotelAddress</p>
                     <p class="card-text">@item.Description</p>
-
-
+                    <div class="days-container">
+                        @{
+                            DateTime currentDate = UniversalFilterValue.CheckIn; 
+                            while (currentDate <= UniversalFilterValue.CheckOut)
+                            {
+                                <div class="days">
+                                    <p>@currentDate.ToString("ddd") </p>
+                                    <p>@currentDate.ToString("dd-MM-yy")</p>
+                                    @{
+                                        bool isBlackoutDate = item.BlackoutDates.Any(blackoutDate => blackoutDate.Date.Date == currentDate.Date);
+                                        if (!isBlackoutDate)
+                                        {
+                                           
+                                                var rate = GetRate(item, UniversalFilterValue.Adult, UniversalFilterValue.Child);
+                                                
+                                                total += decimal.Parse(rate);
+                                                <p class="card-text"><small class="text-muted">@rate /-</small></p>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <p>N/A</p>
+                                        }
+                                    }
+                                </div>
+                                currentDate = currentDate.AddDays(1); 
+                            }
+                        }
+                    </div>
                 </div>
 
                 <div class="block3">
+                    <p>Total Amount</p>
+                    <p>@total</p> 
                     @{
-                        if (UniversalFilterValue.Adult == 1 && UniversalFilterValue.Child == 0)
-                        {
-                            <p class="card-text"><small class="text-muted">@item.SingleRate /-</small></p>
-                        }
-                        else if (UniversalFilterValue.Adult == 1 && UniversalFilterValue.Child == 1)
-                        {
-                            <p class="card-text"><small class="text-muted">@item.DoubleRate /-</small></p>
-                        }
-                        else if (UniversalFilterValue.Adult == 2 && UniversalFilterValue.Child == 0)
-                        {
-                            <p class="card-text"><small class="text-muted">@item.DoubleRate /-</small></p>
-                        }
-                        else if (UniversalFilterValue.Adult == 3 && UniversalFilterValue.Child == 0)
-                        {
-                            <p class="card-text"><small class="text-muted">@item.TripleRate /-</small></p>
-                        }
-                        else if (UniversalFilterValue.Adult > 3 && UniversalFilterValue.Child > 0)
-                        {
-                            decimal adjustedRate = item.TripleRate + UniversalFilterValue.Adult * item.AdultRate + UniversalFilterValue.Child * item.ChildRate;
-                            <p class="card-text"><small class="text-muted">@adjustedRate /-</small></p>
-                        }
-
-
+                        total = 0;
                     }
-
-                    <p>per night</p>
                     <button>Contact Us</button>
                 </div>
 
-
             </div>
-
         </div>
-
     }
+
 
 </div>
 <div>

@@ -33,6 +33,60 @@ namespace HotelReservation.Controllers
             return View(data);
         }
 
+        //Rooms price details view
+        public async Task<IActionResult> RoomsPriceDetail(int id)
+        {
+            var data = await _hotelService.RoomsPriceDetail(id);
+            ViewData["RoomId"] = id;
+
+            return View(data);
+        }
+
+        //add new room price details Display
+        public async Task<IActionResult> AddRoomPriceDisplay(int id)
+        {
+            ViewData["RoomId"] = id;
+            return View();
+        }
+
+        //add new room price details
+        public async Task<IActionResult> AddRoomPrice(RoomDateRangeModel model)
+        {
+            var data = await _hotelService.AddRoomPrice(model);
+
+            if(data != null)
+            {
+                return RedirectToAction("RoomsPriceDetail", new { id = model.RoomId });
+            }
+            return RedirectToAction("Index");
+        }
+
+       
+
+        //edit room price view
+        public async Task<IActionResult> EditRoomPrice(int id)
+        {
+            var data = await _hotelService.EditRoomPrice(id);
+            return View(data);
+        }
+      
+
+        //updating room price details
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        public async Task<IActionResult> UpdateRoomPriceDetails(RoomDateRangeModel model)
+        {
+
+            var response = await _hotelService.UpdateRoomPriceDetails(model);
+
+            if (response != null)
+            {
+            return RedirectToAction("RoomsPriceDetail", new { id = model.RoomId });
+            }
+                return RedirectToAction("Index");
+        }
+
+
         //Add Hotel display
         [Authorize(Roles = "admin")]
         public IActionResult AddHotelDisplay()
@@ -96,6 +150,7 @@ namespace HotelReservation.Controllers
         }
 
         //edit room action
+        
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> EditRoom(HotelRoomModel roomModel)
         {

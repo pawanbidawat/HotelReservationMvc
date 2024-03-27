@@ -16,6 +16,7 @@ namespace HotelReservation.Models.DTO
         public IFormFile? HotelImageFile { get; set; }
         public decimal Rating { get; set; }
         public ICollection<HotelRoomModel>? RoomDetails { get; set; }
+     
 
     }
 }

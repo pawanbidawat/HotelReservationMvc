@@ -7,28 +7,20 @@
       "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\views\\home\\filterrooms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\views\\hotel\\editroomprice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\views\\hotel\\editroomprice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\repository\\services\\hotelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\repository\\services\\hotelservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\universalfiltervalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\universalfiltervalue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\controllers\\hotelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\views\\home\\hotelrooms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\views\\home\\hotelrooms.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\wwwroot\\js\\hotelroom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\wwwroot\\js\\hotelroom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\wwwroot\\js\\homeindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\wwwroot\\js\\homeindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|c:\\users\\s3\\onedrive\\desktop\\mvc_projects\\mvc_projects\\hotelreservation\\hotelreservation\\views\\hotel\\roomspricedetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B9AE117A-567A-44CE-BE66-0577A0B3165E}|HotelReservation\\HotelReservation.csproj|solutionrelative:hotelreservation\\views\\hotel\\roomspricedetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,32 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "HotelReservation\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "HotelReservation\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAA9wC4AAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T09:50:01.202Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UniversalFilterValue.cs",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\UniversalFilterValue.cs",
-              "RelativeDocumentMoniker": "HotelReservation\\UniversalFilterValue.cs",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\UniversalFilterValue.cs",
-              "RelativeToolTip": "HotelReservation\\UniversalFilterValue.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-22T09:48:55.692Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -72,59 +40,62 @@
               "RelativeDocumentMoniker": "HotelReservation\\Views\\Home\\FilterRooms.cshtml",
               "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Home\\FilterRooms.cshtml",
               "RelativeToolTip": "HotelReservation\\Views\\Home\\FilterRooms.cshtml",
-              "ViewState": "AQIAAG4AAAAAAAAAAAAYwIEAAAAsAAAA",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAAADkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-22T08:54:12.027Z",
+              "WhenOpened": "2024-03-27T10:17:33.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HotelService.cs",
+              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Repository\\Services\\HotelService.cs",
+              "RelativeDocumentMoniker": "HotelReservation\\Repository\\Services\\HotelService.cs",
+              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Repository\\Services\\HotelService.cs",
+              "RelativeToolTip": "HotelReservation\\Repository\\Services\\HotelService.cs",
+              "ViewState": "AQIAADgAAAAAAAAAAAArwE4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T10:13:26.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HotelController.cs",
+              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Controllers\\HotelController.cs",
+              "RelativeDocumentMoniker": "HotelReservation\\Controllers\\HotelController.cs",
+              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Controllers\\HotelController.cs",
+              "RelativeToolTip": "HotelReservation\\Controllers\\HotelController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAArwE0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-27T10:13:26.437Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "HotelRooms.cshtml",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Home\\HotelRooms.cshtml",
-              "RelativeDocumentMoniker": "HotelReservation\\Views\\Home\\HotelRooms.cshtml",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Home\\HotelRooms.cshtml",
-              "RelativeToolTip": "HotelReservation\\Views\\Home\\HotelRooms.cshtml",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAADYAAAARAAAA",
+              "Title": "RoomsPriceDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Hotel\\RoomsPriceDetail.cshtml",
+              "RelativeDocumentMoniker": "HotelReservation\\Views\\Hotel\\RoomsPriceDetail.cshtml",
+              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Hotel\\RoomsPriceDetail.cshtml",
+              "RelativeToolTip": "HotelReservation\\Views\\Hotel\\RoomsPriceDetail.cshtml",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAvwBYAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-22T08:33:50.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomeIndex.js",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\HomeIndex.js",
-              "RelativeDocumentMoniker": "HotelReservation\\wwwroot\\js\\HomeIndex.js",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\HomeIndex.js",
-              "RelativeToolTip": "HotelReservation\\wwwroot\\js\\HomeIndex.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-21T07:20:10.07Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "HotelReservation\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "HotelReservation\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-03-21T06:21:58.619Z",
+              "WhenOpened": "2024-03-27T10:12:47.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HotelRoom.js",
-              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\HotelRoom.js",
-              "RelativeDocumentMoniker": "HotelReservation\\wwwroot\\js\\HotelRoom.js",
-              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\HotelRoom.js",
-              "RelativeToolTip": "HotelReservation\\wwwroot\\js\\HotelRoom.js",
-              "ViewState": "AQIAACMAAAAAAAAAAAAwwDgAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-20T13:02:42.45Z"
+              "DocumentIndex": 1,
+              "Title": "EditRoomPrice.cshtml",
+              "DocumentMoniker": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Hotel\\EditRoomPrice.cshtml",
+              "RelativeDocumentMoniker": "HotelReservation\\Views\\Hotel\\EditRoomPrice.cshtml",
+              "ToolTip": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\Views\\Hotel\\EditRoomPrice.cshtml",
+              "RelativeToolTip": "HotelReservation\\Views\\Hotel\\EditRoomPrice.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-27T10:12:10.891Z",
+              "EditorCaption": ""
             }
           ]
         }

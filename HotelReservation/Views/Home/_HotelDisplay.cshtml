@@ -21,19 +21,39 @@
 
             <div class="block3">
                 <p class="card-text"><small class="text-muted">Min. Price</small></p>
-                @if (item.RoomDetails != null && item.RoomDetails.Any())
-                {
-                    var topRoom = item.RoomDetails.FirstOrDefault();
-                    <p class="card-text">@topRoom.SingleRate</p>
-                }
-                else
-                {
-                    <p class="card-text">No room rate available</p>
+
+                @{
+                    if (item.RoomDetails != null && item.RoomDetails.Any())
+                    {
+                        var firstRoomPrice = item.RoomDetails.FirstOrDefault();
+                        if (firstRoomPrice != null && firstRoomPrice.DateRanges.Any())
+                        {
+                            var topRoom = firstRoomPrice.DateRanges.FirstOrDefault();
+                            if (topRoom != null)
+                            {
+                                <p class="card-text">@topRoom.SingleRate</p>
+                            }
+                            else
+                            {
+                                <p class="card-text">No room rate available</p>
+                            }
+                        }
+                        else
+                        {
+                            <p class="card-text">No room rate available</p>
+                        }
+                    }
+                    else
+                    {
+                        <p class="card-text">No room rate available</p>
+                    }
                 }
 
                 <p>per night</p>
                 <button>Contact Us</button>
             </div>
+
+
 
         </div>
     </div>

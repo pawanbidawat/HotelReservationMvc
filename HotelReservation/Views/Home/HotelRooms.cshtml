@@ -52,15 +52,35 @@
                     <p class="card-text">@item.Hotel.HotelName</p>
                     <p class="card-text">@item.Hotel.HotelAddress</p>
                     <p class="card-text">@item.Description</p>
-                 
+
                 </div>
 
                 <div class="block3">
-                    <p class="card-text"><small class="text-muted">@item.SingleRate /-</small></p>
+                    <p class="card-text"><small class="text-muted">Min. Price</small></p>
+
+                    @{
+
+                        var firstRoomPrice = item.DateRanges.FirstOrDefault();
+
+                        var topRoom = firstRoomPrice;
+                        if (topRoom != null)
+                        {
+                            <p class="card-text">@topRoom.SingleRate</p>
+                        }
+                        else
+                        {
+                            <p class="card-text">No room rate available</p>
+                        }
+                    }
+
+
+
+
 
                     <p>per night</p>
                     <button>Contact Us</button>
                 </div>
+
 
 
             </div>

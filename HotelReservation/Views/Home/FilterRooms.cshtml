@@ -6,33 +6,31 @@
     decimal total = 0;
 
     @functions {
-        public string GetRate(HotelRoomModel item, int adultCount, int childCount)
+        public string GetRate(int adultCount, int childCount, RoomDateRangeModel dateRange)
         {
-
             if (adultCount == 1 && childCount == 0)
-            {              
-                return $"{item.SingleRate}";
+            {
+                return $"{dateRange.SingleRate}";
             }
             else if (adultCount == 1 && childCount == 1)
             {
-                if (item.ExceptionCase)
+                if (dateRange.ExceptionCase)
                 {
-                    return $"{item.DoubleRate}";
+                    return $"{dateRange.DoubleRate}";
                 }
-                return $"{item.SingleRate+item.ChildRate}";
+                return $"{dateRange.SingleRate + dateRange.ChildRate}";
             }
             else if (adultCount == 2 && childCount == 0)
             {
-                return $"{item.DoubleRate}";
+                return $"{dateRange.DoubleRate}";
             }
             else if (adultCount == 3 && childCount == 0)
             {
-                return $"{item.TripleRate}";
+                return $"{dateRange.TripleRate}";
             }
-          
             else if (adultCount >= 2 && childCount > 0)
             {
-                decimal adjustedRate = item.SingleRate + adultCount * item.AdultRate + childCount * item.ChildRate;
+                decimal? adjustedRate = dateRange.SingleRate + adultCount * dateRange.AdultRate + childCount * dateRange.ChildRate;
                 return $"{adjustedRate}";
             }
             else
@@ -41,6 +39,7 @@
             }
         }
     }
+
 }
 <style>
     .Desc {
@@ -50,11 +49,13 @@
 
     .ParentBox, .FilterBlock {
         display: flex;
+
     }
 
     .block2 {
         margin-left: 20%;
         margin-top: 2%;
+        
     }
 
     .block3 {
@@ -62,20 +63,24 @@
         margin-left: auto;
         margin-right: 20px;
         margin-top: 2%;
+        
     }
 
     .container {
-        overflow: hidden;
+        overflow: auto;
     }
 
     .days-container {
         display: flex;
         flex-direction: row;
-        /* Additional styles as needed */
+        
+
+        
     }
 
     .days {
         margin-left: 10px;
+        
     }
 
 </style>
@@ -110,7 +115,7 @@
                     <p class="card-text">@item.Description</p>
                     <div class="days-container">
                         @{
-                            DateTime currentDate = UniversalFilterValue.CheckIn; 
+                            DateTime currentDate = UniversalFilterValue.CheckIn;
                             while (currentDate <= UniversalFilterValue.CheckOut)
                             {
                                 <div class="days">
@@ -120,12 +125,19 @@
                                         bool isBlackoutDate = item.BlackoutDates.Any(blackoutDate => blackoutDate.Date.Date == currentDate.Date);
                                         if (!isBlackoutDate)
                                         {
-                                           
-                                                var rate = GetRate(item, UniversalFilterValue.Adult, UniversalFilterValue.Child);
-                                                
-                                                total += decimal.Parse(rate);
-                                                <p class="card-text"><small class="text-muted">@rate /-</small></p>
-                                            
+                                            var totalRate = 0.0m;
+                                            @foreach (var dateRange in item.DateRanges)
+                                            {
+                                                if (currentDate.Date >=  dateRange.DateFrom.Date && currentDate.Date < dateRange.DateTo.Date)
+                                                {
+                                                    var rate = GetRate(UniversalFilterValue.Adult, UniversalFilterValue.Child, dateRange);
+                                                    totalRate += decimal.Parse(rate);
+                                                    <p class="card-text"><small class="text-muted">@rate /-</small></p>                                                    
+
+                                                }
+                                            }
+
+                                            total += totalRate;
                                         }
                                         else
                                         {
@@ -133,15 +145,16 @@
                                         }
                                     }
                                 </div>
-                                currentDate = currentDate.AddDays(1); 
+                                currentDate = currentDate.AddDays(1);
                             }
                         }
                     </div>
+
                 </div>
 
                 <div class="block3">
                     <p>Total Amount</p>
-                    <p>@total</p> 
+                    <p>@total Rs</p> 
                     @{
                         total = 0;
                     }

@@ -1,0 +1,130 @@
+﻿@model IEnumerable<HotelReservation.Models.DTO.RoomDateRangeModel>
+
+@{
+    ViewData["Title"] = "RoomsPriceDetail";
+}
+
+<h1>RoomsPriceDetail</h1>
+
+<p>
+    <a asp-action="AddRoomPriceDisplay" asp-route-id="@ViewData["RoomId"]">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DateFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTo)
+            </th>
+            <th>
+                BlackoutDates
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SingleRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoubleRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TripleRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdultRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChildRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExceptionCase)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTo)
+                </td>
+                <td>
+                    <a href="#" data-roomId="@item.DateRangeId" class="showCalendar">
+                        Show
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SingleRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoubleRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TripleRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdultRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChildRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExceptionCase)
+                </td>
+
+
+
+                <td>
+                    <a class="btn btn-primary" asp-route-id="@item.DateRangeId" role="button" asp-controller="Hotel" asp-action="EditRoomPrice">Edit</a> |
+                    <button class="btn btn-danger deleteRoomPrice" date-range-id="@item.DateRangeId" role="button">Delete</button>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<!-- Load jQuery UI -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multidatespicker/1.6.6/jquery-ui.multidatespicker.js"></script>
+<!-- Load jQuery UI CSS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@* <script src="~/js/HotelRoom.js"></script> *@
+<script>
+    $(document).ready(function () {
+
+        $('.deleteRoomPrice').click(function () {
+
+            var id = $(this).attr('date-range-id');
+
+
+            $.ajax({
+                type: "DELETE",
+                url: `https://localhost:44368/api/HotelApi/DeleteRoomPriceByDateRangeId?id=${id}`,
+                success: function (data) {
+                    console.log(data);
+
+                    window.location.reload();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error deleting hotel:", textStatus, errorThrown);
+                }
+            });
+        });
+
+        //method for blackout date
+
+
+
+    });
+
+</script>

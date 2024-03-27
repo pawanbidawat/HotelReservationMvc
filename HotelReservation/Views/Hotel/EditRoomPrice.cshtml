@@ -1,0 +1,91 @@
+﻿@model HotelReservation.Models.DTO.RoomDateRangeModel
+
+@{
+    ViewData["Title"] = "EditRoomPrice";
+}
+
+<h1>EditRoomPrice</h1>
+
+<h4>RoomDateRangeModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateRoomPriceDetails" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+   
+                <input asp-for="DateRangeId" class="form-control" type="hidden" />
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFrom" class="control-label"></label>
+                <input asp-for="DateFrom" class="form-control" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTo" class="control-label"></label>
+                <input asp-for="DateTo" class="form-control" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SingleRate" class="control-label"></label>
+                <input asp-for="SingleRate" class="form-control" />
+                <span asp-validation-for="SingleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoubleRate" class="control-label"></label>
+                <input asp-for="DoubleRate" class="form-control" />
+                <span asp-validation-for="DoubleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TripleRate" class="control-label"></label>
+                <input asp-for="TripleRate" class="form-control" />
+                <span asp-validation-for="TripleRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultRate" class="control-label"></label>
+                <input asp-for="AdultRate" class="form-control" />
+                <span asp-validation-for="AdultRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChildRate" class="control-label"></label>
+                <input asp-for="ChildRate" class="form-control" />
+                <span asp-validation-for="ChildRate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SingleEqualDouble" /> @Html.DisplayNameFor(model => model.SingleEqualDouble)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="ExceptionCase" /> @Html.DisplayNameFor(model => model.ExceptionCase)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NoExtraAdult" /> @Html.DisplayNameFor(model => model.NoExtraAdult)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NoChild" /> @Html.DisplayNameFor(model => model.NoChild)
+                </label>
+            </div>
+            <div class="form-group">
+             
+                <input asp-for="RoomId" type="hidden" />
+                <input asp-for="DateRangeId" type="hidden" />
+              
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcQWRkUm9vbURpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/AddRoomPriceDisplay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcQWRkUm9vbVByaWNlRGlzcGxheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/EditHotelDisplay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRWRpdEhvdGVsRGlzcGxheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -62,12 +66,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRWRpdFJvb21EaXNwbGF5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/EditRoomPrice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcRWRpdFJvb21QcmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/HotelRoomDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSG90ZWxSb29tRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Hotel/RoomsPriceDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcUm9vbXNQcmljZURldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Shared/Error.cshtml]

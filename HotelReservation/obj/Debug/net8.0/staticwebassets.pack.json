@@ -49,8 +49,16 @@
       "PackagePath": "staticwebassets\\images\\RoomImages\\SingleRoom.reisetopia-aI6Su7Mu9Ro-unsplash.jpg"
     },
     {
-      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\SingleRoom.visualsofdana-T5pL6ciEn-I-unsplash.jpg",
-      "PackagePath": "staticwebassets\\images\\RoomImages\\SingleRoom.visualsofdana-T5pL6ciEn-I-unsplash.jpg"
+      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\sample room.linus-mimietz-p3UWyaujtQo-unsplash.jpg",
+      "PackagePath": "staticwebassets\\images\\RoomImages\\sample room.linus-mimietz-p3UWyaujtQo-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\sample room.lotus-design-n-print-g8tb9SXqZVQ-unsplash.jpg",
+      "PackagePath": "staticwebassets\\images\\RoomImages\\sample room.lotus-design-n-print-g8tb9SXqZVQ-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\sample room.reisetopia-aI6Su7Mu9Ro-unsplash.jpg",
+      "PackagePath": "staticwebassets\\images\\RoomImages\\sample room.reisetopia-aI6Su7Mu9Ro-unsplash.jpg"
     },
     {
       "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\EditRoom.js",

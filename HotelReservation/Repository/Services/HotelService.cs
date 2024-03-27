@@ -1,5 +1,6 @@
 ﻿using HotelReservation.Models.DTO;
 using HotelReservation.Repository.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -35,6 +36,57 @@ namespace HotelReservation.Repository.Services
             var response = await client.GetAsync(apiUrl);
             var data = JsonConvert.DeserializeObject<List<HotelRoomModel>>(await response.Content.ReadAsStringAsync());
             return data;
+        }
+
+        //get room date range price detail by room id 
+        public async Task<List<RoomDateRangeModel>> RoomsPriceDetail(int id)
+        {
+            var client = new HttpClient();
+            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDateRange?id={id}";
+            var response = await client.GetAsync(apiUrl);
+            var data = JsonConvert.DeserializeObject<List<RoomDateRangeModel>>(await response.Content.ReadAsStringAsync());
+            return data;
+        }
+
+        //add new room price details
+        public async Task<bool> AddRoomPrice(RoomDateRangeModel model)
+        {
+            var client = new HttpClient();
+            var apiUrl = "https://localhost:44368/api/HotelApi/AddRoomDateRange";
+            var jsonvalue = JsonConvert.SerializeObject(model);
+            var content = new StringContent(jsonvalue, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(apiUrl, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        //get room date range price details by daterangeid
+        public async Task<RoomDateRangeModel> EditRoomPrice(int id)
+        {
+            var client = new HttpClient();
+            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDateRangeByDateRangeId?id={id}";
+            var response = await client.GetAsync(apiUrl);
+            var data = JsonConvert.DeserializeObject<RoomDateRangeModel>(await response.Content.ReadAsStringAsync());
+            return data;
+        }
+
+        //updating room date range price details
+        public  async Task<bool> UpdateRoomPriceDetails(RoomDateRangeModel model)
+        {           
+            var Client = new HttpClient();
+            var apiUrl =  $"https://localhost:44368/api/HotelApi/UpdateRoomDateRangeByDateRangeId";
+            var jasonValue = JsonConvert.SerializeObject(model);
+            var content = new StringContent(jasonValue, Encoding.UTF8, "application/json");
+            var response = await Client.PutAsync(apiUrl, content);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
         }
 
         //get room details by room id 
@@ -153,7 +205,7 @@ namespace HotelReservation.Repository.Services
 
         public async Task<HotelRoomModel> UploadRoomImage(HotelRoomModel model)
         {
-            if (model.RoomImage != null)
+            if (model.RoomImage != null && model.RoomImageFile != null)
             {
                 var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/RoomImages", model.RoomImage);
                 if (File.Exists(filePath))

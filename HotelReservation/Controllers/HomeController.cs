@@ -41,8 +41,30 @@ namespace HotelReservation.Controllers
 
         }
 
+        
+        public async Task<IActionResult> FilterRooms(int id )
+        {
+            var model = new HotelFilterModel
+            {
+                Adult = UniversalFilterValue.Adult,
+                Child = UniversalFilterValue.Child,
+                DateFrom = UniversalFilterValue.CheckIn,
+                DateTo = UniversalFilterValue.CheckOut,
+                hotelId = id
+            };
+            var client = new HttpClient();
+            var apiUrl = "https://localhost:44368/api/HotelApi/GetHotelFilterRoom";
+            var jsonValue = JsonConvert.SerializeObject(model);
+            var content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(apiUrl, content);
+            var data = JsonConvert.DeserializeObject<List<HotelRoomModel>>(await response.Content.ReadAsStringAsync());
+
+
+            return View(data);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> FilterRooms(HotelFilterModel model)
+        public async Task<IActionResult> FilterHotel(HotelFilterModel model)
         {
             UniversalFilterValue.Adult = model.Adult;
             UniversalFilterValue.Child = model.Child;
@@ -53,11 +75,12 @@ namespace HotelReservation.Controllers
             var jsonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);
-            var data = JsonConvert.DeserializeObject<List<HotelRoomModel>>(await response.Content.ReadAsStringAsync());
+            var data = JsonConvert.DeserializeObject<List<HotelDetailsModel>>(await response.Content.ReadAsStringAsync());
 
 
             return View(data);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> SearchHotel(string searchValue)

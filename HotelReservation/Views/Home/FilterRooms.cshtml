@@ -28,6 +28,10 @@
             {
                 return $"{dateRange.TripleRate}";
             }
+            else if (adultCount > 3 || childCount == 0)
+            {
+                return $"{dateRange.TripleRate + ((adultCount-3) * dateRange.AdultRate) + childCount * dateRange.ChildRate}";
+            }
             else if (adultCount >= 2 && childCount > 0)
             {
                 decimal? adjustedRate = dateRange.SingleRate + adultCount * dateRange.AdultRate + childCount * dateRange.ChildRate;
@@ -70,13 +74,21 @@
         overflow: auto;
     }
 
+
     .days-container {
         display: flex;
-        flex-direction: row;
-        
+        flex-wrap: wrap;
+        width: 400px;
+        height:35%;
+        overflow-y: scroll;
+    }
+
+    .days-container .days{
+        margin-left:2%;
+    }
 
         
-    }
+    
 
     .days {
         margin-left: 10px;
@@ -108,6 +120,8 @@
                 </div>
 
                 <div class="block2">
+                   @*  <div class="Ablock"></div>
+                    <div class="Ablock"></div> *@
                     <h5 class="card-title">@item.RoomType</h5>
                     <p class="card-text">@item.Hotel.Rating Star</p>
                     <p class="card-text">@item.Hotel.HotelName</p>
@@ -116,7 +130,7 @@
                     <div class="days-container">
                         @{
                             DateTime currentDate = UniversalFilterValue.CheckIn;
-                            while (currentDate <= UniversalFilterValue.CheckOut)
+                            while (currentDate < UniversalFilterValue.CheckOut)
                             {
                                 <div class="days">
                                     <p>@currentDate.ToString("ddd") </p>

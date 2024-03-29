@@ -6,6 +6,7 @@
         public int Child { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
+        public int hotelId { get; set; }
         public HotelRoomModel? HotelRoom { get; set; }
         public HotelDetailsModel? HotelDetails { get; set; }
     }

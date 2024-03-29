@@ -31,6 +31,7 @@
                     var date = new Date(item.date);            
                    
                     $('#blackoutDates').append('<input type="hidden" class="blackoutDate" value="' + date.toISOString().split('T')[0] + '">');
+               
                 });
 
               
@@ -41,7 +42,7 @@
                         var isBlackoutDate = $('.blackoutDate[value="' + dateString + '"]').length > 0;
 
                         if (isBlackoutDate) {
-                            return [true, 'custom-color', 'Blackout Date'];
+                            return [true, 'custom-color', 'BlackoutDate'];
                         } else {
                             return [true, '', ''];
 

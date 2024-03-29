@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\s3\OneDrive\Desktop\MVC_Projects\MVC_Projects\HotelReservation\HotelReservation
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Home/FilterHotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaWx0ZXJIb3RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/s3/OneDrive/Desktop/MVC_Projects/MVC_Projects/HotelReservation/HotelReservation/Views/Home/FilterRooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGaWx0ZXJSb29tcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

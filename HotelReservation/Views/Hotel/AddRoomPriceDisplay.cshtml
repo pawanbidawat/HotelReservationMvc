@@ -13,10 +13,10 @@
         <form asp-action="AddRoomPrice">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-              
+
                 <input asp-for="DateRangeId" class="form-control" type="hidden" />
-                <input asp-for="RoomId" value="@ViewData["RoomId"]" name="RoomId" type="hidden"  class="form-control" />
-               
+                <input asp-for="RoomId" value="@ViewData["RoomId"]" name="RoomId" type="hidden" class="form-control" />
+
             </div>
             <div class="form-group">
                 <label asp-for="DateFrom" class="control-label"></label>
@@ -30,12 +30,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="SingleRate" class="control-label"></label>
-                <input asp-for="SingleRate" class="form-control" />
+                <input asp-for="SingleRate" class="form-control" id="singleRate" />
                 <span asp-validation-for="SingleRate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DoubleRate" class="control-label"></label>
-                <input asp-for="DoubleRate" class="form-control" />
+                <input asp-for="DoubleRate" class="form-control" id="doubleRate" />
                 <span asp-validation-for="DoubleRate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,17 +45,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="AdultRate" class="control-label"></label>
-                <input asp-for="AdultRate" class="form-control" />
+                <input asp-for="AdultRate" class="form-control" id="adultRate" />
                 <span asp-validation-for="AdultRate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ChildRate" class="control-label"></label>
-                <input asp-for="ChildRate" class="form-control" />
+                <input asp-for="ChildRate" class="form-control" id="childRate" />
                 <span asp-validation-for="ChildRate" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="SingleEqualDouble" /> @Html.DisplayNameFor(model => model.SingleEqualDouble)
+                    <input class="form-check-input" asp-for="SingleEqualDouble" id="singleEqualDouble" /> @Html.DisplayNameFor(model => model.SingleEqualDouble)
                 </label>
             </div>
             <div class="form-group form-check">
@@ -65,15 +65,15 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="NoExtraAdult" /> @Html.DisplayNameFor(model => model.NoExtraAdult)
+                    <input class="form-check-input" asp-for="NoExtraAdult" id="noExtraAdult" /> @Html.DisplayNameFor(model => model.NoExtraAdult)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="NoChild" /> @Html.DisplayNameFor(model => model.NoChild)
+                    <input class="form-check-input" asp-for="NoChild" id="noChild" /> @Html.DisplayNameFor(model => model.NoChild)
                 </label>
             </div>
-        
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -84,4 +84,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/EditRoom.js"></script>
 

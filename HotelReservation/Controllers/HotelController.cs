@@ -34,6 +34,7 @@ namespace HotelReservation.Controllers
         }
 
         //Rooms price details view
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> RoomsPriceDetail(int id)
         {
             var data = await _hotelService.RoomsPriceDetail(id);
@@ -43,6 +44,7 @@ namespace HotelReservation.Controllers
         }
 
         //add new room price details Display
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddRoomPriceDisplay(int id)
         {
             ViewData["RoomId"] = id;
@@ -50,6 +52,7 @@ namespace HotelReservation.Controllers
         }
 
         //add new room price details
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> AddRoomPrice(RoomDateRangeModel model)
         {
             var data = await _hotelService.AddRoomPrice(model);
@@ -61,9 +64,10 @@ namespace HotelReservation.Controllers
             return RedirectToAction("Index");
         }
 
-       
+
 
         //edit room price view
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> EditRoomPrice(int id)
         {
             var data = await _hotelService.EditRoomPrice(id);

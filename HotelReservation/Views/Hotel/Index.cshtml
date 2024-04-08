@@ -1,4 +1,6 @@
 ﻿@using HotelReservation.Models.DTO
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
 @model List<HotelDetailsModel>
 
 
@@ -42,6 +44,9 @@
 
 </table>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    var HotelApi = '@Configuration["HotelApiUrl"]';
+</script>
 
 <script src="~/js/HotelIndex.js"></script>
 

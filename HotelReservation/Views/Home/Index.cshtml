@@ -1,4 +1,6 @@
 ﻿@using HotelReservation.Models.DTO
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
 @model List<HotelDetailsModel>
 
 @{
@@ -7,34 +9,7 @@
 
 }
 <style>
-    .OuterBlock {
-        border: 2px solid;
-        margin-top: 2%;
-    }
-
-    .ParentBox, .FilterBlock {
-        display: flex;
-    }
-
-    .block2 {
-        margin-left: 20%;
-        margin-top: 2%;
-    }
-
-    .block3 {
-        float: left;
-        margin-left: auto;
-        margin-right: 20px;
-        margin-top: 2%;
-    }
-
-    .CheckBtn {
-        margin-top: 1.8%;
-    }
-
-    .container {
-        overflow: hidden;
-    }
+    <link rel="stylesheet" href="~/css/site.css" />
 </style>
 
 

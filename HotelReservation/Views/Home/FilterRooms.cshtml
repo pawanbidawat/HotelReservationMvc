@@ -6,96 +6,50 @@
     decimal total = 0;
 
     @functions {
-        public string GetRate(int adultCount, int childCount, RoomDateRangeModel dateRange)
+        public decimal? GetRate(int adultCount, int childCount, RoomDateRangeModel dateRange)
         {
             if (adultCount == 1 && childCount == 0)
             {
-                return $"{dateRange.SingleRate}";
+                return dateRange.SingleRate;
             }
             else if (adultCount == 1 && childCount == 1)
             {
                 if (dateRange.ExceptionCase)
                 {
-                    return $"{dateRange.DoubleRate}";
+                    return dateRange.DoubleRate;
                 }
-                return $"{dateRange.SingleRate + dateRange.ChildRate}";
+                return dateRange.SingleRate + dateRange.ChildRate;
             }
             else if (adultCount == 2 && childCount == 0)
             {
-                return $"{dateRange.DoubleRate}";
+                return dateRange.DoubleRate;
             }
             else if (adultCount == 3 && childCount == 0)
             {
-                return $"{dateRange.TripleRate}";
+                return dateRange.TripleRate;
             }
             else if (adultCount > 3 || childCount == 0)
             {
-                return $"{dateRange.TripleRate + ((adultCount-3) * dateRange.AdultRate) + childCount * dateRange.ChildRate}";
+                return dateRange.TripleRate + ((adultCount - 3) * dateRange.AdultRate) + childCount * dateRange.ChildRate;
             }
             else if (adultCount >= 2 && childCount > 0)
             {
                 decimal? adjustedRate = dateRange.SingleRate + adultCount * dateRange.AdultRate + childCount * dateRange.ChildRate;
-                return $"{adjustedRate}";
+                return adjustedRate;
             }
             else
             {
-                return "Rate not available";
+                return null;
             }
         }
     }
 
 }
-<style>
-    .Desc {
-        border: 2px solid;
-        margin-top: 2%;
-    }
-
-    .ParentBox, .FilterBlock {
-        display: flex;
-
-    }
-
-    .block2 {
-        margin-left: 20%;
-        margin-top: 2%;
-        
-    }
-
-    .block3 {
-        float: left;
-        margin-left: auto;
-        margin-right: 20px;
-        margin-top: 2%;
-        
-    }
-
-    .container {
-        overflow: auto;
-    }
-
-
-    .days-container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 400px;
-        height:35%;
-        overflow-y: scroll;
-    }
-
-    .days-container .days{
-        margin-left:2%;
-    }
-
-        
-    
-
-    .days {
-        margin-left: 10px;
-        
-    }
-
-</style>
+<head>
+    <style>
+        <link rel="stylesheet" href="~/css/site.css" / >
+    </style>
+</head>
 <div class="row">
     <div class="col-sm-8">
 
@@ -120,21 +74,22 @@
                 </div>
 
                 <div class="block2">
-                   @*  <div class="Ablock"></div>
-                    <div class="Ablock"></div> *@
-                    <h5 class="card-title">@item.RoomType</h5>
-                    <p class="card-text">@item.Hotel.Rating Star</p>
-                    <p class="card-text">@item.Hotel.HotelName</p>
-                    <p class="card-text">@item.Hotel.HotelAddress</p>
-                    <p class="card-text">@item.Description</p>
-                    <div class="days-container">
+                    <div class="Ablock">
+
+                        <h5 class="card-title">@item.RoomType</h5>
+                        <p class="card-text">@item.Hotel.Rating Star</p>
+                        <p class="card-text">@item.Hotel.HotelName</p>
+                        <p class="card-text">@item.Hotel.HotelAddress</p>
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                        <div class="days-container">
                         @{
                             DateTime currentDate = UniversalFilterValue.CheckIn;
                             while (currentDate < UniversalFilterValue.CheckOut)
                             {
                                 <div class="days">
-                                    <p>@currentDate.ToString("ddd") </p>
-                                    <p>@currentDate.ToString("dd-MM-yy")</p>
+                                    <p>@currentDate.ToString("ddd")/@currentDate.ToString("dd-MM") </p>
+                                    <p></p>
                                     @{
                                         bool isBlackoutDate = item.BlackoutDates.Any(blackoutDate => blackoutDate.Date.Date == currentDate.Date);
                                         if (!isBlackoutDate)
@@ -142,11 +97,22 @@
                                             var totalRate = 0.0m;
                                             @foreach (var dateRange in item.DateRanges)
                                             {
-                                                if (currentDate.Date >=  dateRange.DateFrom.Date && currentDate.Date < dateRange.DateTo.Date)
+                                                if (currentDate.Date >= dateRange.DateFrom.Date && currentDate.Date < dateRange.DateTo.Date)
                                                 {
                                                     var rate = GetRate(UniversalFilterValue.Adult, UniversalFilterValue.Child, dateRange);
-                                                    totalRate += decimal.Parse(rate);
-                                                    <p class="card-text"><small class="text-muted">@rate /-</small></p>                                                    
+                                                    totalRate += (decimal)rate;
+                                                    <p class="card-text">
+                                                        @if (rate.HasValue && rate.Value != 0)
+                                                        {
+                                                            <small class="text-muted">
+                                                                @rate.Value /-
+                                                            </small>
+                                                        }
+                                                        else
+                                                        {
+                                                            <small class="text-muted">N/A</small>
+                                                        }
+                                                    </p>
 
                                                 }
                                             }
@@ -168,7 +134,7 @@
 
                 <div class="block3">
                     <p>Total Amount</p>
-                    <p>@total Rs</p> 
+                    <p>@total Rs</p>
                     @{
                         total = 0;
                     }

@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    
     $('.delete').click(function () {
 
         var id = $(this).attr('hotel-id');
@@ -7,7 +7,7 @@
 
         $.ajax({
             type: "DELETE",
-            url: `https://localhost:44368/api/HotelApi/RemoveHotel?id=${id}`,
+            url: `${HotelApi}/RemoveHotel?id=${id}`,
             success: function (data) {
                 console.log(data);
 

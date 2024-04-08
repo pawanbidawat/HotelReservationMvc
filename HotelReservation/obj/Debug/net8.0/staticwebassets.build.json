@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rG1HbxDFsS/nwlSUeJFnE9Z8mj3YxymTUIScTpyKNro=",
+  "Hash": "YVt4a5dTzaGM5XT/JiJ6/ozW6p4/ZaASJqBFJrsXgpA=",
   "Source": "HotelReservation",
   "BasePath": "_content/HotelReservation",
   "Mode": "Default",
@@ -207,6 +207,25 @@
       "OriginalItemSpec": "wwwroot\\images\\RoomImages\\Deluxe King Room.230013099.jpg"
     },
     {
+      "Identity": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\Deluxe King Room.511158955.jpg",
+      "SourceId": "HotelReservation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\",
+      "BasePath": "_content/HotelReservation",
+      "RelativePath": "images/RoomImages/Deluxe King Room.511158955.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\RoomImages\\Deluxe King Room.511158955.jpg"
+    },
+    {
       "Identity": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\King room.vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg",
       "SourceId": "HotelReservation",
       "SourceType": "Discovered",
@@ -319,6 +338,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\RoomImages\\SingleRoom.reisetopia-aI6Su7Mu9Ro-unsplash.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\Standard King Room.pexels-pixabay-271619.jpg",
+      "SourceId": "HotelReservation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\",
+      "BasePath": "_content/HotelReservation",
+      "RelativePath": "images/RoomImages/Standard King Room.pexels-pixabay-271619.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\RoomImages\\Standard King Room.pexels-pixabay-271619.jpg"
     },
     {
       "Identity": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\js\\EditRoom.js",

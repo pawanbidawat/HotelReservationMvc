@@ -1,34 +1,7 @@
 ﻿@using HotelReservation.Models.DTO
 @model IEnumerable<HotelReservation.Models.DTO.HotelDetailsModel>
 <style>
-    .OuterBlock {
-        border: 2px solid;
-        margin-top: 2%;
-    }
-
-    .ParentBox, .FilterBlock {
-        display: flex;
-    }
-
-    .block2 {
-        margin-left: 20%;
-        margin-top: 2%;
-    }
-
-    .block3 {
-        float: left;
-        margin-left: auto;
-        margin-right: 20px;
-        margin-top: 2%;
-    }
-
-    .CheckBtn {
-        margin-top: 1.8%;
-    }
-
-    .container {
-        overflow: hidden;
-    }
+    <link rel="stylesheet" href="~/css/site.css" />
 </style>
 <div class="container" id="HotelDisplay">
 @foreach (var item in Model)
@@ -53,27 +26,25 @@
             <div class="block3">
                 <p class="card-text"><small class="text-muted">Min. Price</small></p>
 
-                @{
+                    @{
                         if (item.RoomDetails != null && item.RoomDetails.Any())
-                    {
-                            var firstRoomPrice = item.RoomDetails.FirstOrDefault();
-                        if (firstRoomPrice != null && firstRoomPrice.DateRanges.Any())
                         {
-                            var topRoom = firstRoomPrice.DateRanges.FirstOrDefault();
-                            if (topRoom != null)
+                            var firstRoomPrice = item.RoomDetails.FirstOrDefault();
+                            var minPrice = item.RoomDetails.SelectMany(x => x.DateRanges).Where(x => 
+                                (x.DateFrom <= UniversalFilterValue.CheckOut && x.DateTo >= UniversalFilterValue.CheckIn)).
+                                Min(x=>x.SingleRate);
+
+                            if (minPrice != null)
                             {
-                                    <p class="card-text">@topRoom.SingleRate Rs</p>
+                                <p class="card-text">@minPrice Rs</p>
                             }
                             else
                             {
-                                    <p class="card-text">No room rate available</p>
+                                <p class="card-text">No room rate available</p>
                             }
                         }
-                        else
-                        {
-                                <p class="card-text">No room rate available</p>
-                        }
-                    }
+                       
+                    
                     else
                     {
                             <p class="card-text">No room rate available</p>
@@ -92,26 +63,5 @@
 </div>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
-@* <script src="~/js/HomeIndex.js"></script> *@
 
-@* <script>
-    $(document).ready(function () {
-        $('.ParentBox').on('click', function () {
-            var hotelId = $(this).find('.hotel-id').val();
-            console.log(hotelId);
-            $.ajax({
-                url: '/Home/FilterRooms',
-                type: 'POST',
-                data: { hotelId: hotelId },
-                success: function (response) {
-                   
-                    console.log(response);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error:', error);
-                }
-            });
-        });
-    });
 
-</script> *@

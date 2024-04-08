@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\RoomImages\\Deluxe King Room.230013099.jpg"
     },
     {
+      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\Deluxe King Room.511158955.jpg",
+      "PackagePath": "staticwebassets\\images\\RoomImages\\Deluxe King Room.511158955.jpg"
+    },
+    {
       "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\King room.vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg",
       "PackagePath": "staticwebassets\\images\\RoomImages\\King room.vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg"
     },
@@ -47,6 +51,10 @@
     {
       "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\SingleRoom.reisetopia-aI6Su7Mu9Ro-unsplash.jpg",
       "PackagePath": "staticwebassets\\images\\RoomImages\\SingleRoom.reisetopia-aI6Su7Mu9Ro-unsplash.jpg"
+    },
+    {
+      "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\Standard King Room.pexels-pixabay-271619.jpg",
+      "PackagePath": "staticwebassets\\images\\RoomImages\\Standard King Room.pexels-pixabay-271619.jpg"
     },
     {
       "Id": "C:\\Users\\s3\\OneDrive\\Desktop\\MVC_Projects\\MVC_Projects\\HotelReservation\\HotelReservation\\wwwroot\\images\\RoomImages\\sample room.linus-mimietz-p3UWyaujtQo-unsplash.jpg",

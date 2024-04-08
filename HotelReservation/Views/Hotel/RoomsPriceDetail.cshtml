@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<HotelReservation.Models.DTO.RoomDateRangeModel>
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+
 
 @{
     ViewData["Title"] = "RoomsPriceDetail";
@@ -6,33 +8,43 @@
 <style>
     .custom-color {
         background-color: black;
-        opacity: 1 !important;       
+        opacity: 1 !important;
     }
 
     #blackoutDates {
-        opacity:1;
+        display: none;
         position: absolute;
-        margin: 30% 20%;
+        margin: 20% 40%;
         width: 1px;
         height: 32px;
     }
+
+    .FocusBlock{
+        height:250px;
+        width:250px;
+        position:absolute;
+        margin:50% 50%;
+        background-color:antiquewhite:
+
+    }
+
 </style>
 
 <h1>RoomsPriceDetail</h1>
-
 <p>
     <a asp-action="AddRoomPriceDisplay" asp-route-id="@ViewData["RoomId"]">Create New</a>
 </p>
 
-@* <div id="blackoutDates">
+<div id="blackoutDates" >
+    <input type="hidden" id="roomId" value="@ViewData["RoomId"]" />
+
     <input id="datepicker" type="text" />
     <button id="submitBtn">Submit</button>
     <button id="removeBtn">Remove</button>
-</div> *@
+</div>
 <table class="table">
     <thead>
         <tr>
-
             <th>
                 @Html.DisplayNameFor(model => model.DateFrom)
             </th>
@@ -118,33 +130,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-multidatespicker/1.6.6/jquery-ui.multidatespicker.js"></script>
 <!-- Load jQuery UI CSS -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- <script src="~/js/HotelRoom.js"></script> 
 <script>
-    $(document).ready(function () {
-
-        $('.deleteRoomPrice').click(function () {
-
-            var id = $(this).attr('date-range-id');
-
-
-            $.ajax({
-                type: "DELETE",
-                url: `https://localhost:44368/api/HotelApi/DeleteRoomPriceByDateRangeId?id=${id}`,
-                success: function (data) {
-                    console.log(data);
-
-                    window.location.reload();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.error("Error deleting hotel:", textStatus, errorThrown);
-                }
-            });
-        });
-
-        
-
-
-
-    });
-
+    var HotelApi = '@Configuration["HotelApiUrl"]';
 </script>
+<script src="~/js/HotelRoom.js"></script>
+

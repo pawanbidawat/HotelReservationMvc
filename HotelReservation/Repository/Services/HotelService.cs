@@ -9,18 +9,20 @@ namespace HotelReservation.Repository.Services
     public class HotelService:IHotel
     {
         private readonly IWebHostEnvironment _webHost;
-        public HotelService(IWebHostEnvironment webHost)
+        private readonly IConfiguration _configuration;
+        public HotelService(IWebHostEnvironment webHost, IConfiguration configuration)
         {
 
             _webHost = webHost;
-
+            _configuration = configuration;
         }
 
         //get All Hotel details
         public async Task<List<HotelDetailsModel>> GetAllHotelsDetails()
         {
             var Client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/GetAllHotelsDetails";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetAllHotelsDetails";
+
 
             var response = await Client.GetAsync(apiUrl);
 
@@ -32,7 +34,7 @@ namespace HotelReservation.Repository.Services
         public async Task<List<HotelRoomModel>> GetRoomDetailsByHotelId(int id)
         {
             var client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDetailsByHotelId?Id={id}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetRoomDetailsByHotelId?Id={id}";
             var response = await client.GetAsync(apiUrl);
             var data = JsonConvert.DeserializeObject<List<HotelRoomModel>>(await response.Content.ReadAsStringAsync());
             return data;
@@ -42,7 +44,7 @@ namespace HotelReservation.Repository.Services
         public async Task<List<RoomDateRangeModel>> RoomsPriceDetail(int id)
         {
             var client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDateRange?id={id}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetRoomDateRange?id={id}";
             var response = await client.GetAsync(apiUrl);
             var data = JsonConvert.DeserializeObject<List<RoomDateRangeModel>>(await response.Content.ReadAsStringAsync());
             return data;
@@ -52,7 +54,7 @@ namespace HotelReservation.Repository.Services
         public async Task<bool> AddRoomPrice(RoomDateRangeModel model)
         {
             var client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/AddRoomDateRange";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/AddRoomDateRange";
             var jsonvalue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsonvalue, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);
@@ -68,7 +70,7 @@ namespace HotelReservation.Repository.Services
         public async Task<RoomDateRangeModel> EditRoomPrice(int id)
         {
             var client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDateRangeByDateRangeId?id={id}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetRoomDateRangeByDateRangeId?id={id}";
             var response = await client.GetAsync(apiUrl);
             var data = JsonConvert.DeserializeObject<RoomDateRangeModel>(await response.Content.ReadAsStringAsync());
             return data;
@@ -78,7 +80,7 @@ namespace HotelReservation.Repository.Services
         public  async Task<bool> UpdateRoomPriceDetails(RoomDateRangeModel model)
         {           
             var Client = new HttpClient();
-            var apiUrl =  $"https://localhost:44368/api/HotelApi/UpdateRoomDateRangeByDateRangeId";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/UpdateRoomDateRangeByDateRangeId";
             var jasonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jasonValue, Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(apiUrl, content);
@@ -93,7 +95,7 @@ namespace HotelReservation.Repository.Services
         public async Task<HotelRoomModel> GetRoomDetailsByRoomId(int id)
         {
             var Client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/GetRoomDetailsByRoomId?id={id}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetRoomDetailsByRoomId?id={id}";
             var response = await Client.GetAsync(apiUrl);
             var data = JsonConvert.DeserializeObject<HotelRoomModel>(await response.Content.ReadAsStringAsync());
             return data;
@@ -106,7 +108,7 @@ namespace HotelReservation.Repository.Services
 
 
             var client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/AddHotelDetails";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/AddHotelDetails";
             var jsonvalue = JsonConvert.SerializeObject(UpdatedModel);
             var content = new StringContent(jsonvalue, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);
@@ -121,7 +123,7 @@ namespace HotelReservation.Repository.Services
         public async Task<HotelDetailsModel> GetHotelsDetailsById(int id)
         {
             var Client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/GetHotelsDetailsById?id={id}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetHotelsDetailsById?id={id}";
 
             var response = await Client.GetAsync(apiUrl);
 
@@ -134,7 +136,7 @@ namespace HotelReservation.Repository.Services
         {
             var model =await UploadHotelImage(hotelModel);
             var Client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/EditHotelDetail?id={hotelModel.HotelId}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/EditHotelDetail?id={hotelModel.HotelId}";
             var jasonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jasonValue, Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(apiUrl, content);
@@ -150,7 +152,7 @@ namespace HotelReservation.Repository.Services
         {
             var model = await UploadRoomImage(roomModel);
             var Client = new HttpClient();
-            var apiUrl = $"https://localhost:44368/api/HotelApi/EditRoomByRoomId?id={roomModel.RoomId}";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/EditRoomByRoomId?id={roomModel.RoomId}";
             var jsonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(apiUrl, content);
@@ -166,7 +168,7 @@ namespace HotelReservation.Repository.Services
         {
             var updatedModel = await UploadRoomImage(model);
             var client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/AddRoomDetails";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/AddRoomDetails";
             var jasonValue = JsonConvert.SerializeObject(updatedModel);
             var content = new StringContent(jasonValue, encoding: Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);

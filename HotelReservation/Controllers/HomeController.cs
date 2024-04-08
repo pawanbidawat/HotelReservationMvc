@@ -13,11 +13,12 @@ namespace HotelReservation.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IHotel _hotelService;
-
-        public HomeController(ILogger<HomeController> logger , IHotel hotelService)
+        private readonly IConfiguration _configuration;
+        public HomeController(ILogger<HomeController> logger , IHotel hotelService, IConfiguration configuration)
         {
             _logger = logger;
             _hotelService = hotelService;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
@@ -53,7 +54,7 @@ namespace HotelReservation.Controllers
                 hotelId = id
             };
             var client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/GetHotelFilterRoom";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetHotelFilterRoom";
             var jsonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);
@@ -71,7 +72,7 @@ namespace HotelReservation.Controllers
             UniversalFilterValue.CheckIn = model.DateFrom;
             UniversalFilterValue.CheckOut = model.DateTo;
             var client = new HttpClient();
-            var apiUrl = "https://localhost:44368/api/HotelApi/GetHotelAndRoomByDate";
+            var apiUrl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetHotelAndRoomByDate";
             var jsonValue = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = await client.PostAsync(apiUrl, content);
@@ -86,7 +87,7 @@ namespace HotelReservation.Controllers
         public async Task<IActionResult> SearchHotel(string searchValue)
         {
             var client = new HttpClient();
-            var apiurl = $"https://localhost:44368/api/HotelApi/GetHotelSearchResult?searchValue={searchValue}";
+            var apiurl = $"{_configuration.GetSection("HotelApiUrl").Value}/GetHotelSearchResult?searchValue={searchValue}";
             var response = await client.GetAsync(apiurl);
 
             var data = JsonConvert.DeserializeObject<List<HotelDetailsModel>>(await response.Content.ReadAsStringAsync());
